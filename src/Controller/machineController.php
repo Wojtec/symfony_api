@@ -111,12 +111,12 @@ class machineController extends AbstractController
     public function getById($id) {
         $data = file_get_contents($this->DATABASE);
         $items = json_decode($data);
-        $machines = array();
+        $machines;
 
         foreach($items as $item) {
             if($item->id === $id)
 
-            $machines[] = $item;
+            $machines = $item;
 
             continue;
 
