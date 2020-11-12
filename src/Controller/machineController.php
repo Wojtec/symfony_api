@@ -20,6 +20,7 @@ class machineController extends AbstractController
      * 
      */
     public function index() {
+        $this->headers->set('Access-Control-Allow-Origin:', '*');
 
         return new Response ("<div><h1>Hello</h1></div>");
      }
@@ -54,7 +55,7 @@ class machineController extends AbstractController
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-
+        $this->headers->set('Access-Control-Allow-Origin:', '*');
         return new JsonResponse(['status' => 'Customer created!', $items], JsonResponse::HTTP_CREATED);
     }
 
@@ -87,6 +88,7 @@ class machineController extends AbstractController
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
+        $this->headers->set('Access-Control-Allow-Origin:', '*');
 
         return new JsonResponse(['status' => 'Customer created!', $machine], JsonResponse::HTTP_CREATED);
     }
@@ -100,6 +102,8 @@ class machineController extends AbstractController
        $data = file_get_contents($this->DATABASE);
        $items = json_decode($data);
      
+       $this->headers->set('Access-Control-Allow-Origin:', '*');
+
        return new JsonResponse($items, JsonResponse::HTTP_CREATED);
     }
 
@@ -121,6 +125,8 @@ class machineController extends AbstractController
             continue;
 
          }
+         $this->headers->set('Access-Control-Allow-Origin:', '*');
+
          return $this -> json($machines);
 
     }
@@ -143,6 +149,8 @@ class machineController extends AbstractController
             continue;
 
          }
+         $this->headers->set('Access-Control-Allow-Origin:', '*');
+
          return $this -> json($machines);
 
     }
@@ -165,6 +173,7 @@ class machineController extends AbstractController
             continue;
 
          }
+         $this->headers->set('Access-Control-Allow-Origin:', '*');
 
          return $this -> json($machines);
 
