@@ -21,7 +21,7 @@ class machineController extends AbstractController
      */
     public function index() {
 
-        return new Response ("<div>hello</div>");
+        return new Response ("<div><h1>Hello</h1></div>");
      }
 
      /**
