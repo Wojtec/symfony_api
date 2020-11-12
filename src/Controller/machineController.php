@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\AcceptHeader;
 
 class machineController extends AbstractController
 {
@@ -20,8 +21,8 @@ class machineController extends AbstractController
      * 
      */
     public function index() {
-        $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+        $acceptHeader = 'Access-Control-Allow-Origin: *';
+        AcceptHeader::fromString($acceptHeader);
         return new Response ("<div><h1>Hello</h1></div>");
      }
 
@@ -55,7 +56,8 @@ class machineController extends AbstractController
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-        $this->headers->set('Access-Control-Allow-Origin:', '*');
+        $acceptHeader = 'Access-Control-Allow-Origin: *';
+        AcceptHeader::fromString($acceptHeader);
         return new JsonResponse(['status' => 'Customer created!', $items], JsonResponse::HTTP_CREATED);
     }
 
@@ -88,8 +90,8 @@ class machineController extends AbstractController
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
-        $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+        $acceptHeader = 'Access-Control-Allow-Origin: *';
+        AcceptHeader::fromString($acceptHeader);
         return new JsonResponse(['status' => 'Customer created!', $machine], JsonResponse::HTTP_CREATED);
     }
 
@@ -102,8 +104,8 @@ class machineController extends AbstractController
        $data = file_get_contents($this->DATABASE);
        $items = json_decode($data);
      
-       $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+       $acceptHeader = 'Access-Control-Allow-Origin: *';
+       AcceptHeader::fromString($acceptHeader);
        return new JsonResponse($items, JsonResponse::HTTP_CREATED);
     }
 
@@ -125,8 +127,8 @@ class machineController extends AbstractController
             continue;
 
          }
-         $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+         $acceptHeader = 'Access-Control-Allow-Origin: *';
+         AcceptHeader::fromString($acceptHeader);
          return $this -> json($machines);
 
     }
@@ -149,8 +151,8 @@ class machineController extends AbstractController
             continue;
 
          }
-         $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+         $acceptHeader = 'Access-Control-Allow-Origin: *';
+         AcceptHeader::fromString($acceptHeader);
          return $this -> json($machines);
 
     }
@@ -173,8 +175,8 @@ class machineController extends AbstractController
             continue;
 
          }
-         $this->headers->set('Access-Control-Allow-Origin:', '*');
-
+         $acceptHeader = 'Access-Control-Allow-Origin: *';
+         AcceptHeader::fromString($acceptHeader);
          return $this -> json($machines);
 
     }
