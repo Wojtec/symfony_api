@@ -77,8 +77,8 @@ class machineController extends AbstractController
         $machine->setPrice($data["price"]);
         $machine->setImages($data['images']);
 
-        $jsonData = ($this->DATABASE);
-        $arrayData = json_decode($jsonData);
+        $jsonData = file_get_contents($this->DATABASE);
+        $arrayData = json_decode($jsonData, true);
         array_push($arrayData, $machine);
         $newData = json_encode($arrayData);
         file_put_contents($this->DATABASE, $newData);
