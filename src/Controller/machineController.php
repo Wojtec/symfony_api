@@ -21,7 +21,16 @@ class machineController extends AbstractController
      */
     public function index() {
 
-        return new Response ("<div><h1>Hello</h1></div>");
+        return new Response ("
+        <div>
+        <h1>Symfony API routes</h1>
+        <p>Get all machines: /api/v1/getAllMachines</p>
+        <p>Get machine by ID: /api/v1/getAllMachines/{id}</p>
+        <p>Post new machine: /api/v1/getAllMachines/add</p>
+        <p>Update machine: /api/v1/getAllMachines/{id}</p>
+        <p>Filter machines by brand: /api/v1/brand/{brand}</p>
+        <p>Filter machines by price: /api/v1/price/{from}/{to}</p>
+        </div>");
      }
 
      /**
@@ -67,10 +76,10 @@ class machineController extends AbstractController
      */
     public function add(Request $request): JsonResponse {
         $data = json_decode($request->getContent(), true);
+        $id = uniqid();
 
         $machine = new Machine();
-
-        $machine->setId($data["id"]);
+        $machine->setId($id);
         $machine->setBrand($data["brand"]);
         $machine->setModel($data["model"]);
         $machine->setManufacturer($data['manufacturer']);
@@ -83,7 +92,7 @@ class machineController extends AbstractController
         $newData = json_encode($arrayData);
         file_put_contents($this->DATABASE, $newData);
 
-        if (empty($data["id"]) || empty($data["brand"]) || empty($data["model"]) || empty($data['manufacturer']) || empty($data['manufacturer']) || empty($data['price']) || empty($data['images'])) {
+        if (empty($data["brand"]) || empty($data["model"]) || empty($data['manufacturer']) || empty($data['manufacturer']) || empty($data['price']) || empty($data['images'])) {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
