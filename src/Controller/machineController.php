@@ -105,7 +105,7 @@ class machineController extends AbstractController
 
      /**
      * GET MACHINES BY ID NAME ROUTE
-     * @Route("/api/v1/getAllMachines/{id}", name="getById")
+     * @Route("/api/v1/getAllMachines/{id}", name="getById", methods={"GET"})
      * 
      */
     public function getById($id) {
@@ -128,7 +128,7 @@ class machineController extends AbstractController
 
     /**
      * GET MACHINES BY BRAND NAME ROUTE
-     * @Route("/api/v1/getAllMachines/brand/{brand}", name="brand") 
+     * @Route("/api/v1/brand/{brand}", name="brand", methods={"GET"}) 
      * 
      */
     public function getByBrand($brand) {
@@ -151,20 +151,20 @@ class machineController extends AbstractController
 
     /**
      * GET MACHINES BY PRICE ROUTE
-     * @Route("/api/v1/getAllMachines/price/{price}", name="price")
+     * @Route("/api/v1/price/{from}/{to}", name="price", methods={"GET"})
      * 
      */
-    public function getByPrice($price) {
+    public function getByPrice($from, $to) {
         $data = file_get_contents('../dataBase.json');
         $items = json_decode($data);
         $machines = array();
 
         foreach($items as $item) {
-            if($item->price == $price)
+        if($item->price >= $from && $item->price <= $to)
 
-            $machines[] = $item;
+        $machines[] = $item;
 
-            continue;
+        continue;
 
          }
 
