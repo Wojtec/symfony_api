@@ -59,7 +59,7 @@ class machineController extends AbstractController
          file_put_contents($this->DATABASE, json_encode($items));
 
 
-        if (empty($data["id"]) || empty($data["brand"]) || empty($data["model"]) || empty($data['manufacturer']) || empty($data['manufacturer']) || empty($data['price']) || empty($data['images'])) {
+        if ( empty($data["brand"]) || empty($data["model"]) || empty($data['manufacturer']) || empty($data['manufacturer']) || empty($data['price']) || empty($data['images'])) {
             throw new NotFoundHttpException('Expecting mandatory parameters!');
         }
 
