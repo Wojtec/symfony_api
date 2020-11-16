@@ -43,19 +43,4 @@
         "type": "lateral_view",
         "url": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/4\/41\/Fully_automated_schiffli_embroidery_machine_by_Saurer.jpg\/1024px-Fully_automated_schiffli_embroidery_machine_by_Saurer.jpg"
     }]
-}, {
-    "id": "5",
-    "brand": "testewt",
-    "model": "testewaa",
-    "manufacturer": "ewcc",
-    "price": "32",
-    "images": [{
-        "id": "23",
-        "type": "newtre",
-        "url": "newuew"
-    }, {
-        "id": "423",
-        "type": "newwer",
-        "url": "newasd"
-    }]
 }]
