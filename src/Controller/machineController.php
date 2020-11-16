@@ -67,8 +67,6 @@ class machineController extends AbstractController
         return new JsonResponse(['status' => 'Customer created!', $items], JsonResponse::HTTP_CREATED);
     }
 
-
-
     /**
      * ADD NEW MACHINE ROUTE
      * @Route("/api/v1/getAllMachines/add", name="add_machines", methods={"POST"})
