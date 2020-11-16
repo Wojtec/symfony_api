@@ -35,7 +35,7 @@ class machineController extends AbstractController
 
      /**
      * UPDATE MACHINE ROUTE
-     * @Route("/api/v1/getAllMachines/{id}", name="update_machines", methods={"PUT"})
+     * @Route("/api/v1/getAllMachines/{id}", name="update_machines", methods={"PATCH"})
      * 
      */
     public function update($id, Request $request): JsonResponse
